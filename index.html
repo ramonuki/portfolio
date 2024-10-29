@@ -42,27 +42,30 @@
 </head>
 
 <body>
+    <!-- Div y span se pueden usar cuando queremos agrupar los elementos para estilarlos, pero no cuando tenemos que poner significado semantico -->
     <header>
         <h1>Portfolio de Ramon CM</h1>
         <!-- Podemos poner elemento de navegación en el header principal -->
-         <nav>
+        <nav>
             <!-- "anchor - a": nos permite navegar hacia fuera (enlaces externos) o por dentro de nuestra pagina (enlaces internos). -->
-             <a href="#experiencia">Experiencia</a>
-             <a href="#proyectos">Proyectos</a>
-             <a href="https://youtube.com">Youtube</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#proyectos">Proyectos</a>
+            <!-- target="_blank" abre el link en una nueva pestaña, rel="noreferrer" impide que se envie la cabecera actual a la nueva URL, le da informacion a la nueva pagina. -->
+            <a href="https://youtube.com" target="_blank" rel="noreferrer">Youtube</a>
 
-         </nav>
+        </nav>
     </header>
-<!-- El header o el footer no debe estar en el main -->
+    <!-- El header o el footer no debe estar en el main -->
     <main>
 
         <!-- Etiquetas para SEO -->
-        <!-- Si tengo una paguina en ingles y en español le digo que esta pagina es la misma pero traducido. Si no se hace Google puede detectar que hay contenido duplicado -->        <link rel="alternate" href="https://ramoncm.com/en" hreflang="en-GB">
+        <!-- Si tengo una paguina en ingles y en español le digo que esta pagina es la misma pero traducido. Si no se hace Google puede detectar que hay contenido duplicado -->
+        <link rel="alternate" href="https://ramoncm.com/en" hreflang="en-GB">
         <!-- Cambio en local vscode win para comprobar en Github -->
 
         <p>+15 años de experiencia como <strong>administrador de sistemas</strong>. Me gusta linux y javascript.</p>
 
-        <h2>Experiencia</h2>
+        <h2 id="experiencia">Experiencia</h2>
 
         <ul>
             <li class="list-item">Kyndryl - 2020</li>
@@ -86,7 +89,7 @@
     "article": contenido que es un bloque independiente de información, que se puede copiar y pegar en otro lugar y no pierde su significado.
     "section": abarcar secciones independientes genericas de un documento. Puede haber secciones dentro de una sección (subsecciones).
     "main": sólo puede haber una etiqueta main. Debe englobar el contenido que es el principal. Fuera del main podemos poner el header principal de nuestra pagian (ej. genbeta)-->
-        <h2>Proyectos realizados</h2>
+        <h2 id="proyectos">Proyectos realizados</h2>
         <!-- SEM aside: Algo que está totalmente separado del contenido principal.Este contenido es como un anexo del contenido.Si tengo un contenido que no es parte directa de la web, i.e. que tiene que ver, pero no es el flujo principal. Contenido que le da un contexto-->
         <aside>
             <!-- Header no significa Top header, puede ir en secciones u otro tipo de elementos. -->
@@ -95,6 +98,7 @@
             </header>
             <ol>https://youtu.be/3nYLTiY5skU?t=3745
         </aside>
+        <!-- Si necesito utilizar un div y quiero que tenga semantica puedo utlilizar la propiedad "role=", esto le da semántica. Ver MDN porque en ocasiones es mejor utilizar una etiqueta en concreto que un role (ej. mejor utilizar button que div role="button") -->
 
         <!-- SEM section: Es una sección dentro de la web. Secciones independientes genericas dentro del documento -->
         <section>
@@ -138,6 +142,22 @@
             </article>
         </section>
     </main>
+
+    <footer>
+        Copyright © 2024 - Portfolio de Ramon Cardona
+        <!-- Enlaces especiales: enviar un email, llamar por tel. enviar whatsapp, etc -->
+        <a href="mailto:ramonuki@gmail.com">Envíame un email</a>
+        <a href="tel:+34688888899">Llamar por telefono</a>
+        <!--Si lo que queremos es que nos contacten vía whatsapp necesitaremos definir nuestro usuario. Los usuarios en whatsapp se definen por el teléfono y por el abid. Este último será necesario para algunos iphone, por ello deberemos usar ambos parámetros. Sin embargo, el abid no es un dato fácil de obtener. Por suerte el parámetro nos permite pasar el teléfono como abid.  -->
+        <a href="whatsapp://send?text=Tu mensaje&phone=+34123456789&abid=+34123456789">
+            <!-- Si quieres descargar una imagen podemos poner una imagen dentro de un anchor y que se pueda descargar directamente. Se utiliza el atributo download. NOTA: no se pueden descargar recursos de otras URL, sólo de mi web -->
+            <a download href="images/songoku.webp">
+
+                <img id="photo-goku" width="200" height="200" title="Dibujo de Son Goku" src="images/songoku.webp"
+                    alt="Imagen de Son Goku de niño">
+            </a>
+
+    </footer>
 
 </body>
 
