@@ -94,11 +94,22 @@
         <aside>
             <!-- Header no significa Top header, puede ir en secciones u otro tipo de elementos. -->
             <header>
-                <h3>Mis tecnologias favoritas</h3>
+                <h3>Mis tecnologias <span>favoritas</span></h3>
             </header>
-            <ol>https://youtu.be/3nYLTiY5skU?t=3745
+            <!-- Atributos de ol, que sean letras y empiece al revés "<ol type="a" reversed>". Que sea numeros, vaya al revés y empiece en 10 "<ol type="1" reversed start="10">". También se puede poner en un "li" el valor que quieres que tenga, si pones el valor a mitad de los "li" empieza por lo que marca "ol" y después cuando llega al "li" con el atributo "value="5"" continúa desde ese valor.
+-->
+            <ol type="1" reversed start="10">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li value="5">JavaScript</li>
+                <li>Node.js</li>
+            </ol>
         </aside>
+
         <!-- Si necesito utilizar un div y quiero que tenga semantica puedo utlilizar la propiedad "role=", esto le da semántica. Ver MDN porque en ocasiones es mejor utilizar una etiqueta en concreto que un role (ej. mejor utilizar button que div role="button") -->
+        <button>
+            Haz clic aqui
+        </button>
 
         <!-- SEM section: Es una sección dentro de la web. Secciones independientes genericas dentro del documento -->
         <section>
@@ -141,6 +152,109 @@
                 </footer>
             </article>
         </section>
+
+        <section>
+            <h2>Preguntas frecuentes</h2>
+            <!-- Con "details" y "sumary" y un "p" puedo crear desplegables. Si pongo "open" muestra el desplegable abierto. -->
+            <details open>
+                <summary>¿Qué estudios tienes?</summary>
+                <p>Estudié en la universidad de Vilanova una Ingeniería de Informática durante 5 años</p>
+            </details>
+
+            <details>
+                <summary>¿Cuáles son tus hobbies?</summary>
+                <p>Me gusta mucho el deporte, sobre todo el fútbol y el baloncesto</p>
+            </details>
+
+            <details>
+                <summary>¿Cuál es tu lenguaje favorito?</summary>
+                <p>Me encanta JavaScript, es un lenguaje muy versátil y con el que se pueden hacer muchas cosas</p>
+        </section>
+
+        <!-- FORMULARIOS -->
+        <section>
+            <h2>Formulario de contacto</h2>
+            <!-- Se añade el método, que en este caso es el método POST y la acción que es a qué URL tiene que enviar todos los datos. -->
+            <form method="post" action="/">
+                <!-- fieldset agrupacion de los diferentest input que vamos a tener -->
+                <fieldset>
+                    <legend>Información personal</legend>
+                    <!-- Cuando se haga clic en la etiqueta te tiene que llevar al input, para eso utilizamos el atributo "for" -->
+                    <!-- Tambien puedo englobar el input con la etiqueta label (puedo quitar el "for" y el "id")-->
+                    <!-- Los "label" estan en linea, se podria utilizar un "div" englobando a cada label para que tuviese un salto de linea. Utilizndo el div toma todo como un bloque y utiliza el "displayblock" por eso tiene un salto de linea. -->
+                    <!-- La mejor manera de hacer el salto de linea es ponerle estilos al label "style="display: block;"" -->
+                    <label for="name">Nombre:</label>
+                    <!-- En los inputs hay que intentar utilizar el input idoneo elegir bien el "type". Por ejemplo en algunos dispositivos el type=email te pondrá la arroba más fácil, te pondrá más facil el teclado según el input. -->
+                    <input type="text" id="name" name="name" placeholder="Ramon Cardona" required>
+                    <!-- Se pueden hacer validaciones de formularios con el atributo "required" en un input. Pero hay que poner un input de tipo "submit" para que haga la validacion de "required"-->
+                    <!-- Opcion 2 -->
+                    <div>
+                        <label>Email:
+                            <input type="email" name="email" placeholder="ramonuki@gmail.com" required>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Información adicional</legend>
+                    <div>
+                        <label>Teléfono:
+                            <!-- Le podemos poner patrones a required para que compruebe el tipo de info que queremos -->
+                            <input type="tel" name="telefono" placeholder="654123123" required pattern="[0-9]{9}">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Elige fecha</legend>
+                    <div>
+                        <label>Fecha:
+                            <input type="datetime-local" name="fecha" required>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Otros</legend>
+
+                    <div>
+                        <label for="why">¿Por qué quieres contactar?</label>
+                        <select name="why" id="why">
+                            <option value="1">Trabajo</option>
+                            <option value="2">Duda</option>
+                            <option value="3">Más información</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="terms">¿Aceptas los términos?</label>
+                        <input type="checkbox" id="terms" name="terms" required>
+                    </div>
+
+                    <div>
+                        <!-- datalist te permite hacer un autocomplete -->
+                        <datalist id="languages">
+                            <option value="JavaScript"></option>
+                            <option value="Python"></option>
+                            <option value="Java"></option>
+                            <option value="C#"></option>
+                        </datalist>
+                        <label>
+                            ¿Con qué lenguaje quieres que te ayude?
+                            <input list="languages" name="languages">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Aquí ponemos el input de tipo submit para validar el formulario -->
+                 <!-- Tambien se puede poner un button con el tipo "submit" en lugar de un input de tipo submit. -->
+                  <!-- De hecho si pones un button dentro de un form es por defecto de tipo submit. A no ser que pongas el button con type=button -->
+                <!-- <input type="submit" value="Enviar contacto"> -->
+                 <button>Enviar contacto</button>
+            </form>
+
+        </section>
+
     </main>
 
     <footer>
